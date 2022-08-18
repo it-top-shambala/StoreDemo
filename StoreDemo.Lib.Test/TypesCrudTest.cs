@@ -13,22 +13,10 @@ public class TypesCrudTest
     [Fact]
     public void GetAllTypes_Test()
     {
-        var expected = new List<Type>
-        {
-            new()
-            {
-                Id = 1,
-                Name = "computer"
-            },
-            new()
-            {
-                Id = 2,
-                Name = "car"
-            }
-        };
+        var expected = new List<Type> { new() { Id = 1, Name = "computer" }, new() { Id = 2, Name = "car" } };
 
         var actual = new TypesCrud().GetAllTypes();
-        
+
         Assert.Equal(expected, actual);
     }
 }

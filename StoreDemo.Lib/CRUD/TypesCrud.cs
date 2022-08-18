@@ -20,7 +20,7 @@ public class TypesCrud
     public IEnumerable<Type> GetAllTypes()
     {
         var types = new List<Type>();
-        
+
         _db.Open();
 
         var sql = "SELECT type_id, type_name FROM tab_types;";
@@ -28,13 +28,9 @@ public class TypesCrud
         var result = command.ExecuteReader();
         while (result.Read())
         {
-            types.Add(new Type
-            {
-                Id = result.GetInt32("type_id"),
-                Name = result.GetString("type_name")
-            });
+            types.Add(new Type { Id = result.GetInt32("type_id"), Name = result.GetString("type_name") });
         }
-        
+
         _db.Close();
 
         return types;

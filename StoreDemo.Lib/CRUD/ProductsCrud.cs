@@ -21,7 +21,7 @@ public class ProductsCrud
     public IEnumerable<Product> GetAllProducts()
     {
         var products = new List<Product>();
-        
+
         _db.Open();
 
         var sql = @"
@@ -40,15 +40,11 @@ FROM tab_products
             {
                 Id = result.GetInt32("id"),
                 Name = result.GetString("name"),
-                Type = new Type
-                {
-                    Id = result.GetInt32("type_id"),
-                    Name = result.GetString("type_name")
-                },
+                Type = new Type { Id = result.GetInt32("type_id"), Name = result.GetString("type_name") },
                 IsActive = result.GetBoolean("is_active")
             });
         }
-        
+
         _db.Close();
 
         return products;
