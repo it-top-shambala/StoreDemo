@@ -1,6 +1,6 @@
 ﻿namespace StoreDemo.Lib.Models;
 
-public class Type
+public record Type
 {
     public int Id { get; set; }
     public string? Name { get; set; }
